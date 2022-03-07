@@ -1,6 +1,6 @@
 package com.srini.scala
 
-object funvariable {
+object qfunvariable {
    def main(args: Array[String]) {
         printStrings("Hello", "Scala", "spark");
    }
