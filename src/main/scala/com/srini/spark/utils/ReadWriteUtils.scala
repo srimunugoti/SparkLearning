@@ -1,17 +1,17 @@
 package com.srini.spark.utils
 
-import org.apache.spark
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
 import java.util.Properties
 
 object ReadWriteUtils {
+  val resourcePath = "src/main/resources/practisefiles/"
   val url = "jdbc:postgresql://localhost:5432/"
   val connectionProperties = new Properties()
 
   def readCsvData(spark:SparkSession,fileName:String):DataFrame={
 
-    spark.read.option("header",true).option("inferSchema","true").csv(fileName)
+    spark.read.option("header",true).option("inferSchema","true").csv(resourcePath+fileName)
 
   }
 

@@ -9,11 +9,9 @@ object ReadCsvFile {
   def main(args: Array[String]): Unit = {
 
    val spark=createSparkSession
-    val resourcePath = "src/main/resources/practisefiles/"
     val fileName="business_employment_data.csv"
     import spark.implicits._
-    val csvDF:Dataset[rawData] = readCsvData(spark,resourcePath+fileName).select("Data_value").as[rawData]
-    
+    val csvDF= readCsvData(spark,fileName).select("Data_value")
     csvDF.filter($"Data_value" === 80078)
     csvDF.show()
 
